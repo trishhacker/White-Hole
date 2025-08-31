@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trish Video Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background: #f2f2f2;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 10px;
+      width: 400px;
+      border-radius: 8px;
+      border: 1px solid #888;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    iframe {
+      width: 80%;
+      height: 500px;
+      border: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📥 Trish Video Downloader</h1>
+  <p>Paste any <b>YouTube / Instagram / Facebook</b> link and click download.</p>
+
+  <input id="url" type="text" placeholder="Enter video link here">
+  <br>
+  <button onclick="downloadVideo()">Download</button>
+
+  <div id="frame"></div>
+
+  <script>
+    function downloadVideo() {
+      let link = document.getElementById("url").value;
+      if (link.trim() === "") {
+        alert("Please enter a valid link");
+        return;
+      }
+
+      // Using external API for demo
+      let apiUrl = "https://loader.to/api/button/?url=" + encodeURIComponent(link);
+
+      document.getElementById("frame").innerHTML =
+        `<iframe src="${apiUrl}"></iframe>`;
+    }
+  </script>
+</body>
+  </html>
